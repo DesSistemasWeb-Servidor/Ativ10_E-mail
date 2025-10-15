@@ -101,6 +101,7 @@ def index():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
             user = User(username=form.name.data)
+            mandarEmail = form.sendEmail.data
             db.session.add(user)
             db.session.commit()
             session['known'] = False
@@ -114,9 +115,13 @@ def index():
             print('subject: ' + str(app.config['FLASKY_MAIL_SUBJECT_PREFIX']), flush=True)
             print('text: ' + "Novo usuário cadastrado: " + form.name.data, flush=True)
 
-            if app.config['FLASKY_ADMIN']:                
+            if app.config['FLASKY_ADMIN'] and mandarEmail:                
                 print('Enviando mensagem...', flush=True)
                 send_simple_message([app.config['FLASKY_ADMIN'], "flaskaulasweb@zohomail.com"], 'Novo usuário', form.name.data)
+                print('Mensagem enviada...', flush=True)
+            elif app.config['FLASKY_ADMIN']:
+                print('Enviando mensagem...', flush=True)
+                send_simple_message([app.config['FLASKY_ADMIN']], 'Novo usuário', form.name.data)
                 print('Mensagem enviada...', flush=True)
         else:
             session['known'] = True
