@@ -126,6 +126,6 @@ def index():
         else:
             session['known'] = True
         session['name'] = form.name.data
-        usuarios = User.query.all()
+        session['usuarios'] = User.query.all()
         return redirect(url_for('index'))
-    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False), usuarios=usuarios)
+    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False), usuarios=session.get('usuarios', False))
