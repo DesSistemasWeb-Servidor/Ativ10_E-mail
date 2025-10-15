@@ -11,6 +11,20 @@
     {% else %}
     <p>Happy to see you again!</p>
     {% endif %}
+    <p>E-mail enviado para o <b>Administrador do sistema</b>, notificando o cadastro de um novo usuário.</p>
 </div>
 {{ wtf.quick_form(form) }}
+<h2>Relação de usuários cadastrados</h2>
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Nome do usuário</th>
+            <th>Função</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}
