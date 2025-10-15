@@ -100,7 +100,7 @@ def index():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
-            user = User(username=form.name.data)
+            user = User(username=form.name.data, role = Role.query.filter_by(name="User").first())
             mandarEmail = form.sendEmail.data
             db.session.add(user)
             db.session.commit()
@@ -128,5 +128,4 @@ def index():
         session['name'] = form.name.data
         usuarios = User.query.all()
         return redirect(url_for('index'))
-    return render_template('index.html', form=form, name=session.get('name'),
-                           known=session.get('known', False), usuarios=usuarios)
+    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False), usuarios = usuarios)
