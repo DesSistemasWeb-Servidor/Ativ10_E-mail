@@ -15,20 +15,22 @@
 </div>
 {{ wtf.quick_form(form) }}
 <h2>Relação de usuários cadastrados</h2>
-<table class='table'>
-    <thead>
-        <tr>
-            <th>Nome do usuário</th>
-            <th>Função</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for i in usuarios %}
+{% if usuarios %}
+    <table class='table'>
+        <thead>
             <tr>
-                <td> i.username </td>
-                <td> i.role.name </td>
+                <th>Nome do usuário</th>
+                <th>Função</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for i in usuarios %}
+                <tr>
+                    <td> i.username </td>
+                    <td> i.role.name </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
 {% endblock %}
