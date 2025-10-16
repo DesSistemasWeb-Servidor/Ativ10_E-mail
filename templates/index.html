@@ -22,6 +22,7 @@
     </div>
     {{ wtf.quick_form(form) }}
     <h2>Relação de usuários cadastrados</h2>
+    {% if usuarios %}
         <table class='table'>
             <thead>
                 <th>Nome do usuário</th>
@@ -36,5 +37,6 @@
                 {% endfor %}
             </tbody>
         </table>
+    {% endif %}
 </div>
 {% endblock %}
