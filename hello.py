@@ -76,7 +76,7 @@ def send_simple_message(to, subject, newUser):
 
 class NameForm(FlaskForm):
     name = StringField('Qual é o seu nome?', validators=[DataRequired()])
-    sendEmail = BooleanField('Deseja enviar e-mail para flaskaulasweb@zohomail.com?', validators=[DataRequired()])
+    sendEmail = BooleanField('Deseja enviar e-mail para flaskaulasweb@zohomail.com?')
     submit = SubmitField('Submit')
 
 @app.shell_context_processor
