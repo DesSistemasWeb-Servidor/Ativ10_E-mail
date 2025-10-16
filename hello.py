@@ -113,7 +113,7 @@ def index():
             print('from: ' + str(app.config['API_FROM']), flush=True)
             print('to: ' + str([app.config['FLASKY_ADMIN'], "flaskaulasweb@zohomail.com"]), flush=True)
             print('subject: ' + str(app.config['FLASKY_MAIL_SUBJECT_PREFIX']), flush=True)
-            print('text: ' + "Novo usuário cadastrado: " + form.name.data, flush=True)
+            print('text: ' + "Prontuário: PT303304X\nNome: Giovanna Karolline Menezes Ribeiro\nNovo usuário cadastrado: " + form.name.data, flush=True)
 
             if app.config['FLASKY_ADMIN'] and mandarEmail:                
                 print('Enviando mensagem...', flush=True)
